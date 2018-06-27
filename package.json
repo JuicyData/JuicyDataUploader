@@ -1,0 +1,22 @@
+{
+  "name": "juicydatauploader",
+  "version": "1.0.0",
+  "description": "Uploads the juicy data to Juicy Data :3",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuicyData/JuicyDataUploader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuicyData/JuicyDataUploader/issues"
+  },
+  "homepage": "https://github.com/JuicyData/JuicyDataUploader#readme",
+  "devDependencies": {
+    "electron": "^2.0.3"
+  }
+}
