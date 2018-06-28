@@ -1,5 +1,5 @@
 {
-  "name": "juicydatauploader",
+  "name": "JuicyDataUploader",
   "version": "1.0.0",
   "description": "Uploads the juicy data to Juicy Data :3",
   "main": "main.js",
@@ -31,5 +31,8 @@
     "win": {
       "target": "portable"
     }
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
