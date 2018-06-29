@@ -6,13 +6,17 @@ const {app, BrowserWindow} = require('electron')
   
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 1920, height: 1080})
+    win = new BrowserWindow({width: 1600, height: 1000, backgroundColor: '#ffd47f', title: "Juicy Data Uploader"})
+
+    win.setMenu(null)
   
     // and load the index.html of the app.
     win.loadFile('index.html')
+
+    win.setTitle("Juicy Data Uploader")
   
     // Open the DevTools.
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
   
     // Emitted when the window is closed.
     win.on('closed', () => {

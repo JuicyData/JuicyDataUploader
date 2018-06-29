@@ -58,7 +58,6 @@ document.getElementById("uploadScheduleButton").onclick = () => {
       for (let i = 0; i < x.length; i++) {
         x[i] = x[i].split("|");
       }
-      console.table(x);
       let y = [];
       for (let i = 0; i < x.length; i++) {
         y.push({
@@ -121,7 +120,6 @@ document.getElementById("syncButton").onclick = () => {
       for (let i = 0; i < x.length; i++) {
         x[i] = x[i].split("|");
       }
-      console.table(x);
       let gameData = [];
       let matchData = [];
       for (let i = 0; i < x.length; i++) {
