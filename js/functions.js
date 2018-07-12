@@ -87,6 +87,7 @@ document.getElementById("uploadScheduleButton").onclick = () => {
         schedule: y
       };
     }
+    console.log({schedule})
     axios
       .post("http://127.0.0.1:3000/api/data/uploadSchedule", schedule)
       .then(function(response) {
@@ -292,6 +293,8 @@ document.getElementById("syncButton").onclick = () => {
         gameData: gameData,
         matchData: matchData
       };
+
+      console.log({request})
       axios
         .post("http://127.0.0.1:3000/api/data/uploadSync", request)
         .then(function(response) {

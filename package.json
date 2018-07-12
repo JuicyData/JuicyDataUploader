@@ -1,7 +1,7 @@
 {
   "name": "JuicyDataUploader",
   "version": "1.0.0",
-  "description": "Uploads the juicy data to Juicy Data :3",
+  "description": "Uploads scoring data to Juicy Data",
   "main": "main.js",
   "scripts": {
     "start": "nodemon --watch *  --exec electron .",
