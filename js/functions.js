@@ -223,7 +223,7 @@ document.getElementById("syncButton").onclick = () => {
             _id: {
               toaEventKey: "1718-CAL-GAMES",
               matchInformation: {
-                matchNumber: x[i][2],
+                matchNumber: Number(x[i][2]),
                 teams: {
                   red1: Number(x[i][5]),
                   red2: Number(x[i][6]),
