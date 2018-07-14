@@ -89,7 +89,7 @@ document.getElementById("uploadScheduleButton").onclick = () => {
     }
     console.log({schedule})
     axios
-      .post("http://127.0.0.1:3000/api/data/uploadSchedule", schedule)
+      .post("http://"+ document.getElementById("api").value +"/api/data/uploadSchedule", schedule)
       .then(function(response) {
         console.log(response);
       })
@@ -296,7 +296,7 @@ document.getElementById("syncButton").onclick = () => {
 
       console.log({request})
       axios
-        .post("http://127.0.0.1:3000/api/data/uploadSync", request)
+        .post("http://" + document.getElementById("api").value + "/api/data/uploadSync", request)
         .then(function(response) {
           console.log(response);
         })

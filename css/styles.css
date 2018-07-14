@@ -20,6 +20,16 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0px;
+    font-size: 1.9rem
+}
+
 .card {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
     border-width: 0;
