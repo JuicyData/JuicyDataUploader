@@ -61,22 +61,22 @@ document.getElementById("uploadScheduleButton").onclick = () => {
       let y = [];
       for (let i = 0; i < x.length; i++) {
         y.push({
-          matchNumber: i + 1,
+          matchNumber: Number(i + 1),
           teams: {
             red1: {
-              teamNumber: x[i][5],
+              teamNumber: Number(x[i][5]),
               surrogate: x[i][23] == 1
             },
             red2: {
-              teamNumber: x[i][6],
+              teamNumber: Number(x[i][6]),
               surrogate: x[i][24] == 1
             },
             blue1: {
-              teamNumber: x[i][8],
+              teamNumber: Number(x[i][8]),
               surrogate: x[i][26] == 1
             },
             blue2: {
-              teamNumber: x[i][9],
+              teamNumber: Number(x[i][9]),
               surrogate: x[i][25] == 1
             }
           }
@@ -129,30 +129,30 @@ document.getElementById("syncButton").onclick = () => {
             _id: {
               toaEventKey: "1718-CAL-GAMES",
               matchInformation: {
-                matchNumber: x[i][2],
+                matchNumber: Number(x[i][2]),
                 robotAlliance: "red",
-                teams: [x[i][5], x[i][6]]
+                teams: [Number(x[i][5]), Number(x[i][6])]
               }
             },
             gameInformation: {
               auto: {
-                jewel: x[i][30],
-                glyphs: x[i][31],
-                keys: x[i][32],
-                park: x[i][33]
+                jewel: Number(x[i][30]),
+                glyphs: Number(x[i][31]),
+                keys: Number(x[i][32]),
+                park: Number(x[i][33])
               },
               driver: {
-                glyphs: x[i][34],
-                rows: x[i][35],
-                columns: x[i][36],
-                cypher: x[i][37]
+                glyphs: Number(x[i][34]),
+                rows: Number(x[i][35]),
+                columns: Number(x[i][36]),
+                cypher: Number(x[i][37])
               },
               end: {
-                relic1: x[i][38],
-                relic2: x[i][39],
-                relic3: x[i][40],
-                relicsUp: x[i][41],
-                balanced: x[i][42]
+                relic1: Number(x[i][38]),
+                relic2: Number(x[i][39]),
+                relic3: Number(x[i][40]),
+                relicsUp: Number(x[i][41]),
+                balanced: Number(x[i][42])
               }
             }
           });
@@ -160,30 +160,30 @@ document.getElementById("syncButton").onclick = () => {
             _id: {
               toaEventKey: "1718-CAL-GAMES",
               matchInformation: {
-                matchNumber: x[i][2],
+                matchNumber: Number(x[i][2]),
                 robotAlliance: "blue",
-                teams: [x[i][8], x[i][9]]
+                teams: [Number(x[i][8]), Number(x[i][9])]
               }
             },
             gameInformation: {
               auto: {
-                jewel: x[i][47],
-                glyphs: x[i][48],
-                keys: x[i][49],
-                park: x[i][50]
+                jewel: Number(x[i][47]),
+                glyphs: Number(x[i][48]),
+                keys: Number(x[i][49]),
+                park: Number(x[i][50])
               },
               driver: {
-                glyphs: x[i][51],
-                rows: x[i][52],
-                columns: x[i][53],
-                cypher: x[i][54]
+                glyphs: Number(x[i][51]),
+                rows: Number(x[i][52]),
+                columns: Number(x[i][53]),
+                cypher: Number(x[i][54])
               },
               end: {
-                relic1: x[i][55],
-                relic2: x[i][56],
-                relic3: x[i][57],
-                relicsUp: x[i][58],
-                balanced: x[i][59]
+                relic1: Number(x[i][55]),
+                relic2: Number(x[i][56]),
+                relic3: Number(x[i][57]),
+                relicsUp: Number(x[i][58]),
+                balanced: Number(x[i][59])
               }
             }
           });
@@ -225,48 +225,48 @@ document.getElementById("syncButton").onclick = () => {
               matchInformation: {
                 matchNumber: x[i][2],
                 teams: {
-                  red1: x[i][5],
-                  red2: x[i][6],
-                  blue1: x[i][8],
-                  blue2: x[i][9]
+                  red1: Number(x[i][5]),
+                  red2: Number(x[i][6]),
+                  blue1: Number(x[i][8]),
+                  blue2: Number(x[i][9])
                 }
               }
             },
             resultInformation: {
               score: {
                 auto: {
-                  red: redAuto,
-                  blue: blueAuto
+                  red: Number(redAuto),
+                  blue: Number(blueAuto)
                 },
                 driver: {
-                  red: redDriver,
-                  blue: blueDriver
+                  red: Number(redDriver),
+                  blue: Number(blueDriver)
                 },
                 end: {
-                  red: redEnd,
-                  blue: blueEnd
+                  red: Number(redEnd),
+                  blue: Number(blueEnd)
                 },
                 total: {
-                  red: redAuto + redDriver + redEnd,
-                  blue: blueAuto + blueDriver + blueEnd
+                  red: Number(redAuto + redDriver + redEnd),
+                  blue: Number(blueAuto + blueDriver + blueEnd)
                 },
                 penalty: {
-                  red: x[i][62] * 10 + x[i][63] * 40,
-                  blue: x[i][60] * 10 + x[i][61] * 40
+                  red: Number(x[i][62] * 10 + x[i][63] * 40),
+                  blue: Number(x[i][60] * 10 + x[i][61] * 40)
                 },
                 final: {
                   red:
-                    x[i][60] * 10 +
+                  Number(x[i][60] * 10 +
                     x[i][61] * 40 +
                     redAuto +
                     redDriver +
-                    redEnd,
+                    redEnd),
                   blue:
-                    x[i][62] * 10 +
+                  Number(x[i][62] * 10 +
                     x[i][63] * 40 +
                     blueAuto +
                     blueDriver +
-                    blueEnd
+                    blueEnd)
                 }
               },
               winner:
