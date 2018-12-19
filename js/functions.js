@@ -4,7 +4,29 @@ var fs = require('fs');
 var axios = require('axios');
 
 // let folderPath;
-let ip = '';
+let ip = '50.113.86.149:12299';
+
+document.addEventListener(
+  'DOMContentLoaded',
+  function() {
+    axios
+      .get('http://localhost/apiv1/events/')
+      .then(function(response) {
+        console.log(response);
+        let eventIDList = response.data.eventCodes;
+        var x = document.getElementById('eventID');
+        for (let i = 0; i < eventIDList.length; i++) {
+          var option = document.createElement('option');
+          option.text = eventIDList[i];
+          x.add(option);
+        }
+      })
+      .catch(function(error) {
+        alert(error);
+      });
+  },
+  false
+);
 
 document.getElementById('uploadScheduleButton').onclick = () => {
   let eventID = document.getElementById('eventID').value;
@@ -41,7 +63,7 @@ document.getElementById('uploadScheduleButton').onclick = () => {
         _id: eventID,
         schedule: tempSchedule
       };
-      console.log({schedule});
+      console.log({ schedule });
       axios
         .post('http://' + ip + '/api/events/ftc/event/uploadSchedule', schedule)
         .then(function(response) {
@@ -198,7 +220,7 @@ document.getElementById('syncButton').onclick = () => {
               gameData: gameData,
               matchData: matchData
             };
-            console.log({request})
+            console.log({ request });
             axios
               .post(
                 'http://' + ip + '/api/events/ftc/event/uploadSync',
