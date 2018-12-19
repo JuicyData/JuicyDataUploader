@@ -4,7 +4,7 @@ var fs = require('fs');
 var axios = require('axios');
 
 // let folderPath;
-let ip = '50.113.86.149:12299';
+let ip = '';
 
 document.addEventListener(
   'DOMContentLoaded',
@@ -211,31 +211,28 @@ document.getElementById('syncButton').onclick = () => {
                 parkedCompletelyCrater: redFull
               }
             });
-            request = {
-              seasonId: {
-                season: '2018-2019',
-                first: 'ftc'
-              },
-              eventKey: eventID,
-              gameData: gameData,
-              matchData: matchData
-            };
-            console.log({ request });
-            axios
-              .post(
-                'http://' + ip + '/api/events/ftc/event/uploadSync',
-                request
-              )
-              .then(function(response) {
-                console.log(response);
-              })
-              .catch(function(error) {
-                alert(error);
-              });
           })
           .catch(function(error) {
             alert(error);
           });
       }
+      request = {
+        seasonId: {
+          season: '2018-2019',
+          first: 'ftc'
+        },
+        eventKey: eventID,
+        gameData: gameData,
+        matchData: matchData
+      };
+      console.log(request);
+      axios
+        .post('http://' + ip + '/api/events/ftc/event/uploadSync', request)
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          alert(error);
+        });
     });
 };
