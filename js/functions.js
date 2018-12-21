@@ -4,7 +4,7 @@ var fs = require('fs');
 var axios = require('axios');
 
 // let folderPath;
-let ip = '';
+let ip = 'localhost:3000';
 
 document.addEventListener(
   'DOMContentLoaded',
@@ -98,8 +98,18 @@ document.getElementById('syncButton').onclick = () => {
           });
         }
       }
-      matchData = [];
-      gameData = [];
+      let matchData = [];
+      let gameData = [];
+      let request = {
+        seasonId: {
+          season: '2018-2019',
+          first: 'ftc'
+        },
+        eventKey: eventID,
+        gameData: gameData,
+        matchData: matchData
+      };
+      let doneWhen0 = tempSchedule.length;
       for (let i = 0; i < tempSchedule.length; i++) {
         axios
           .get(
@@ -162,7 +172,7 @@ document.getElementById('syncButton').onclick = () => {
               redFull = 2;
             }
 
-            gameData.push({
+            gameData[i*2] = {
               matchInformation: {
                 matchNumber: tempSchedule[i].matchNumber,
                 robotAlliance: 'blue',
@@ -187,8 +197,8 @@ document.getElementById('syncButton').onclick = () => {
                 parkedCrater: bluePartial,
                 parkedCompletelyCrater: blueFull
               }
-            });
-            gameData.push({
+            };
+            gameData[i*2+1] = {
               matchInformation: {
                 matchNumber: tempSchedule[i].matchNumber,
                 robotAlliance: 'red',
@@ -210,29 +220,23 @@ document.getElementById('syncButton').onclick = () => {
                 parkedCrater: redPartial,
                 parkedCompletelyCrater: redFull
               }
-            });
+            };
+            doneWhen0--;
+            if(doneWhen0 == 0){
+              console.log(request);
+              axios
+                .post('http://' + ip + '/api/events/ftc/event/uploadSync', request)
+                .then(function(response) {
+                  console.log(response);
+                })
+                .catch(function(error) {
+                  alert(error);
+                });
+            }
           })
           .catch(function(error) {
             alert(error);
           });
       }
-      request = {
-        seasonId: {
-          season: '2018-2019',
-          first: 'ftc'
-        },
-        eventKey: eventID,
-        gameData: gameData,
-        matchData: matchData
-      };
-      console.log(request);
-      axios
-        .post('http://' + ip + '/api/events/ftc/event/uploadSync', request)
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          alert(error);
-        });
     });
 };
