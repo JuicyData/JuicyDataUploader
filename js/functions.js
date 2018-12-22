@@ -23,6 +23,7 @@ document.addEventListener(
       })
       .catch(function(error) {
         alert(error);
+        console.log(error)
       });
   },
   false
@@ -70,6 +71,7 @@ document.getElementById('uploadScheduleButton').onclick = () => {
           console.log(response);
         })
         .catch(function(error) {
+          console.log(error)
           alert(error);
         });
     })
@@ -232,6 +234,7 @@ document.getElementById('syncButton').onclick = () => {
           console.log(response);
         })
         .catch(function(error) {
+          console.log(error)
           alert(error);
         });
     });
