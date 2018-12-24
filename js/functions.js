@@ -83,6 +83,7 @@ document.getElementById('syncButton').onclick = () => {
   axios
     .get('http://localhost/apiv1/events/' + eventID + '/matches/')
     .then(function(response) {
+      console.log(response)
       scoringSystemSchedule = response.data.matches;
       tempSchedule = [];
       for (let i = 0; i < scoringSystemSchedule.length; i++) {
@@ -119,6 +120,7 @@ document.getElementById('syncButton').onclick = () => {
               tempSchedule[i].matchNumber
           )
           .then(function(response) {
+            console.log(tempSchedule[i].matchNumber, response)
             response = response.data;
             matchData[i] = {
               matchInformation: {
@@ -151,10 +153,9 @@ document.getElementById('syncButton').onclick = () => {
               blueFull = 1;
               bluePartial = 1;
             }
-            if (response.red.endParking == 50) {
+            if (response.blue.endParking == 50) {
               blueFull = 2;
             }
-
             if (response.red.endParking == 15) {
               redPartial = 1;
             }
