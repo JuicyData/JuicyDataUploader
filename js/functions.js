@@ -140,32 +140,32 @@ document.getElementById('syncButton').onclick = () => {
             blueFull = 0;
             redPartial = 0;
             redFull = 0;
-            if (response.blue.endParking == 15) {
+            if (response.blue.endParking === 15) {
               bluePartial = 1;
             }
-            if (response.blue.endParking == 25) {
+            if (response.blue.endParking === 25) {
               blueFull = 1;
             }
-            if (response.blue.endParking == 30) {
+            if (response.blue.endParking === 30) {
               bluePartial = 2;
             }
-            if (response.blue.endParking == 40) {
+            if (response.blue.endParking === 40) {
               blueFull = 1;
               bluePartial = 1;
             }
-            if (response.blue.endParking == 50) {
+            if (response.blue.endParking === 50) {
               blueFull = 2;
             }
-            if (response.red.endParking == 15) {
+            if (response.red.endParking === 15) {
               redPartial = 1;
             }
-            if (response.red.endParking == 25) {
+            if (response.red.endParking === 25) {
               redFull = 1;
             }
-            if (response.red.endParking == 30) {
+            if (response.red.endParking === 30) {
               redPartial = 2;
             }
-            if (response.red.endParking == 40) {
+            if (response.red.endParking === 40) {
               redFull = 1;
               redPartial = 1;
             }
