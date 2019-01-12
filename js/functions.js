@@ -4,7 +4,7 @@ var fs = require('fs');
 var axios = require('axios');
 
 // let folderPath;
-let ip = 'localhost:3000';
+let ip = '159.89.154.135';
 
 document.addEventListener(
   'DOMContentLoaded',
