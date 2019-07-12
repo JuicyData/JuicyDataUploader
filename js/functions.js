@@ -7,11 +7,11 @@ var axios = require('axios');
 
 function refresh() {
   var x = document.getElementById('eventID');
+  x.disabled = true;
   var scoringSystemIP = document.getElementById('scoringSystemIP').value;
   for (let i = 1; x.length > 1; i++) {
     x.remove(1);
   }
-  console.log(x);
   checkEventID();
   axios
     .get(scoringSystemIP + '/apiv1/events/')
@@ -23,6 +23,7 @@ function refresh() {
         var option = document.createElement('option');
         option.text = eventIDList[i];
         x.add(option);
+        x.disabled = false;
       }
     })
     .catch(function(error) {
@@ -35,11 +36,13 @@ function checkEventID() {
   if (eventID != '') {
     document.getElementById('uploadScheduleButton').disabled = false;
     document.getElementById('syncButton').disabled = false;
+    document.getElementById('OBSSaveLocation').disabled = false;
     document.getElementById('uploadScheduleButton').classList.replace('btn-secondary', 'btn-primary');
     document.getElementById('syncButton').classList.replace('btn-secondary', 'btn-success');
   } else {
     document.getElementById('uploadScheduleButton').disabled = true;
     document.getElementById('syncButton').disabled = true;
+    document.getElementById('OBSSaveLocation').disabled = true;
     document.getElementById('uploadScheduleButton').classList.replace('btn-primary', 'btn-secondary');
     document.getElementById('syncButton').classList.replace('btn-success', 'btn-secondary');
   }

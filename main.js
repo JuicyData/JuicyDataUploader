@@ -6,18 +6,20 @@ const {app, BrowserWindow} = require('electron')
   
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 1600, height: 1000, backgroundColor: '#ffd47f', title: "Juicy Data Uploader"})
+    win = new BrowserWindow({width: 1100, height: 900, backgroundColor: '#ffd47f', title: "Juicy Data Uploader"})
+
+    if(process.env.NODE_ENV) {
+      win.setBounds({ x: 1921, y: 0, width: 1920, height: 1080 })
+      win.maximize();
+      win.webContents.openDevTools()
+    }
 
     win.setMenu(null)
   
-    // and load the index.html of the app.
     win.loadFile('index.html')
 
     win.setTitle("Juicy Data Uploader")
-  
-    // Open the DevTools.
-    win.webContents.openDevTools()
-  
+    
     // Emitted when the window is closed.
     win.on('closed', () => {
       // Dereference the window object, usually you would store windows

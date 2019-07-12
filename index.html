@@ -10,24 +10,24 @@
   <body>
     <div class="content">
       <div class="container">
-          <div class="card">
-              <div class="row">
-                <div class="col-sm-2">
-                  <h1>0</h1>
-                </div>
-                <div class="col-sm-10">
-                  <input class="form-control" name="apiIP" id="apiIP" />
-                  <h2>API IP</h2>
-                </div>
-              </div>
-            </div>
         <div class="card">
           <div class="row">
             <div class="col-sm-2">
               <h1>0</h1>
             </div>
             <div class="col-sm-10">
-              <input class="form-control" name="scoringSystemIP" id="scoringSystemIP" />
+              <input class="form-control" name="apiIP" id="apiIP" />
+              <h2>Juicy Data API IP</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-2">
+              <h1>0</h1>
+            </div>
+            <div class="col-sm-10">
+              <input class="form-control" name="scoringSystemIP" id="scoringSystemIP" value="http://localhost" />
               <h2>Scoring System IP</h2>
             </div>
           </div>
@@ -42,7 +42,8 @@
                 ><option></option
               ></select>
               <h2>
-                Select the match ID <span style="margin-left: 10px;"><button type="button" class="btn btn-info btn-sm" onclick="refresh()">Refresh</button></span>
+                Select the match ID
+                <span style="margin-left: 10px;"><button type="button" class="btn btn-info btn-sm" onclick="refresh()">Refresh</button></span>
               </h2>
             </div>
           </div>
@@ -70,8 +71,66 @@
             </div>
           </div>
         </div>
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-2">
+              <h1>!!</h1>
+            </div>
+            <div class="col-sm-10">
+              <!-- <input class="form-control" name="OBSSaveLocation" id="OBSSaveLocation"> -->
+              <input type="file" name="OBSSaveLocation" id="OBSSaveLocation" webkitdirectory directory multiple / disabled>
+              <span id="OBSSaveLocationText">No folder selected</span>
+              <h2>OBS Folder Save Location</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-2"><h1>!!</h1></div>
+            <div class="col-sm-10">
+              <div class="row">
+                <div class="col-sm-2"><input type="number" id="OBSMatchNumber" class="form-control" disabled /></div>
+                <div class="col-sm-10">
+                  <button class="btn btn-secondary btn-block" id="startOBSButton" onclick="startOBS()" disabled>
+                    Load Qual Teams OBS
+                  </button>
+                </div>
+              </div>
+              <h2>Load Qual Teams OBS</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-2"><h1>!!</h1></div>
+            <div class="col-sm-10">
+              <div class="row">
+                <div class="col-sm-2"><input type="number" id="elimOBSRedAlliance" class="form-control elimOBSRedAlliance" disabled /></div>
+                <div class="col-sm-8">
+                  <button class="btn btn-secondary btn-block" id="elimStartOBSButton" onclick="elimStartOBS()" disabled>
+                    Load Elim Teams OBS
+                  </button>
+                </div>
+                <div class="col-sm-2"><input type="number" id="elimOBSBlueAlliance" class="form-control elimOBSBlueAlliance" disabled /></div>
+              </div>
+              <h2>Load Elim Teams OBS</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-2"><h1>!!</h1></div>
+            <div class="col-sm-10">
+              <button class="btn btn-secondary btn-block" id="loadRankingsOBS" onclick="loadRankingsOBS()" disabled>
+                Load Rankings OBS
+              </button>
+              <h2>Load Rankings OBS</h2>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
   <script src="./js/functions.js"></script>
+  <script src="./js/obs-teams.js"></script>
 </html>

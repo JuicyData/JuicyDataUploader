@@ -33,11 +33,26 @@ h3 {
 .card {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
     border-width: 0;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-top: 20px;
     padding: 10px;
 }
 
 body {
     color: #666;
+}
+
+input[type='file'] {
+    color: transparent;
+    max-width: 105px;
+}
+
+.elimOBSRedAlliance {
+    background-color: #fdd6d7;
+    color: #76191c;
+}
+
+.elimOBSBlueAlliance {
+    background-color: #cde7fd;
+    color: #184a75;
 }
