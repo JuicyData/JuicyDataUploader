@@ -1,6 +1,7 @@
 var app = require("electron").remote;
 var dialog = app.dialog;
 var fs = require("fs");
+const { ipcRenderer } = require('electron')
 
 var axios = require("axios");
 
@@ -22,7 +23,22 @@ OBSSaveFolderInput.addEventListener("change", function() {
 
   document.getElementById("loadRankingsOBS").disabled = false;
   document.getElementById("loadRankingsOBS").classList.replace("btn-secondary", "btn-info");
+
+  document.getElementById("OBSLowerThirdsName").disabled = false;
+  document.getElementById("OBSLowerThirdsTitle").disabled = false;
+  document.getElementById("OBSLowerThirdsButton").disabled = false;
+  document.getElementById("OBSLowerThirdsButton").classList.replace("btn-secondary", "btn-info");
 });
+
+function setLowerThirds() {
+  let lowerThirdsTitle = document.getElementById("OBSLowerThirdsTitle").value;
+  let lowerThirdsName = document.getElementById("OBSLowerThirdsName").value;
+  let Data = {
+    name: lowerThirdsName,
+    title: lowerThirdsTitle
+  }
+  ipcRenderer.send('request-lower-thirds-update', Data)
+}
 
 function startOBS() {
   let eventID = document.getElementById("eventID").value;
